@@ -1,157 +1,0 @@
-=== Deep Learning Project Pipeline ===
-1. Creating Python Virtual Environment...
-2. Installing requirements...
-Requirement already satisfied: torch>=2.1.0 in ./.venv/lib/python3.13/site-packages (from -r requirements.txt (line 1)) (2.13.0)
-Requirement already satisfied: transformers>=4.35.0 in ./.venv/lib/python3.13/site-packages (from -r requirements.txt (line 2)) (5.14.1)
-Requirement already satisfied: yfinance>=0.2.31 in ./.venv/lib/python3.13/site-packages (from -r requirements.txt (line 3)) (1.5.2)
-Requirement already satisfied: pandas>=2.1.0 in ./.venv/lib/python3.13/site-packages (from -r requirements.txt (line 4)) (3.0.5)
-Requirement already satisfied: numpy>=1.26.0 in ./.venv/lib/python3.13/site-packages (from -r requirements.txt (line 5)) (2.5.1)
-Requirement already satisfied: scikit-learn>=1.3.0 in ./.venv/lib/python3.13/site-packages (from -r requirements.txt (line 6)) (1.9.0)
-Requirement already satisfied: matplotlib>=3.8.0 in ./.venv/lib/python3.13/site-packages (from -r requirements.txt (line 7)) (3.11.1)
-Requirement already satisfied: datasets>=2.14.0 in ./.venv/lib/python3.13/site-packages (from -r requirements.txt (line 8)) (5.0.1)
-Requirement already satisfied: filelock in ./.venv/lib/python3.13/site-packages (from torch>=2.1.0->-r requirements.txt (line 1)) (3.32.2)
-Requirement already satisfied: typing-extensions>=4.10.0 in ./.venv/lib/python3.13/site-packages (from torch>=2.1.0->-r requirements.txt (line 1)) (4.16.0)
-Requirement already satisfied: setuptools>=77.0.3 in ./.venv/lib/python3.13/site-packages (from torch>=2.1.0->-r requirements.txt (line 1)) (83.0.0)
-Requirement already satisfied: sympy>=1.13.3 in ./.venv/lib/python3.13/site-packages (from torch>=2.1.0->-r requirements.txt (line 1)) (1.14.0)
-Requirement already satisfied: networkx>=2.5.1 in ./.venv/lib/python3.13/site-packages (from torch>=2.1.0->-r requirements.txt (line 1)) (3.6.1)
-Requirement already satisfied: jinja2 in ./.venv/lib/python3.13/site-packages (from torch>=2.1.0->-r requirements.txt (line 1)) (3.1.6)
-Requirement already satisfied: fsspec>=0.8.5 in ./.venv/lib/python3.13/site-packages (from torch>=2.1.0->-r requirements.txt (line 1)) (2026.6.0)
-Requirement already satisfied: cuda-toolkit==13.0.3 in ./.venv/lib/python3.13/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch>=2.1.0->-r requirements.txt (line 1)) (13.0.3.0)
-Requirement already satisfied: cuda-bindings<14,>=13.0.3 in ./.venv/lib/python3.13/site-packages (from torch>=2.1.0->-r requirements.txt (line 1)) (13.3.1)
-Requirement already satisfied: nvidia-cudnn-cu13==9.20.0.48 in ./.venv/lib/python3.13/site-packages (from torch>=2.1.0->-r requirements.txt (line 1)) (9.20.0.48)
-Requirement already satisfied: nvidia-cusparselt-cu13==0.8.1 in ./.venv/lib/python3.13/site-packages (from torch>=2.1.0->-r requirements.txt (line 1)) (0.8.1)
-Requirement already satisfied: nvidia-nccl-cu13==2.29.7 in ./.venv/lib/python3.13/site-packages (from torch>=2.1.0->-r requirements.txt (line 1)) (2.29.7)
-Requirement already satisfied: nvidia-nvshmem-cu13==3.4.5 in ./.venv/lib/python3.13/site-packages (from torch>=2.1.0->-r requirements.txt (line 1)) (3.4.5)
-Requirement already satisfied: triton==3.7.1 in ./.venv/lib/python3.13/site-packages (from torch>=2.1.0->-r requirements.txt (line 1)) (3.7.1)
-Requirement already satisfied: nvidia-cublas==13.1.1.3.* in ./.venv/lib/python3.13/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch>=2.1.0->-r requirements.txt (line 1)) (13.1.1.3)
-Requirement already satisfied: nvidia-cuda-nvrtc==13.0.88.* in ./.venv/lib/python3.13/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch>=2.1.0->-r requirements.txt (line 1)) (13.0.88)
-Requirement already satisfied: nvidia-cuda-runtime==13.0.96.* in ./.venv/lib/python3.13/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch>=2.1.0->-r requirements.txt (line 1)) (13.0.96)
-Requirement already satisfied: nvidia-cufft==12.0.0.61.* in ./.venv/lib/python3.13/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch>=2.1.0->-r requirements.txt (line 1)) (12.0.0.61)
-Requirement already satisfied: nvidia-nvjitlink<14,>=13.0.88 in ./.venv/lib/python3.13/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch>=2.1.0->-r requirements.txt (line 1)) (13.3.33)
-Requirement already satisfied: nvidia-cufile==1.15.1.6.* in ./.venv/lib/python3.13/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch>=2.1.0->-r requirements.txt (line 1)) (1.15.1.6)
-Requirement already satisfied: nvidia-cuda-cupti==13.0.85.* in ./.venv/lib/python3.13/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch>=2.1.0->-r requirements.txt (line 1)) (13.0.85)
-Requirement already satisfied: nvidia-curand==10.4.0.35.* in ./.venv/lib/python3.13/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch>=2.1.0->-r requirements.txt (line 1)) (10.4.0.35)
-Requirement already satisfied: nvidia-cusolver==12.0.4.66.* in ./.venv/lib/python3.13/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch>=2.1.0->-r requirements.txt (line 1)) (12.0.4.66)
-Requirement already satisfied: nvidia-cusparse==12.6.3.3.* in ./.venv/lib/python3.13/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch>=2.1.0->-r requirements.txt (line 1)) (12.6.3.3)
-Requirement already satisfied: nvidia-nvtx==13.0.85.* in ./.venv/lib/python3.13/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch>=2.1.0->-r requirements.txt (line 1)) (13.0.85)
-Requirement already satisfied: cuda-pathfinder>=1.4.2 in ./.venv/lib/python3.13/site-packages (from cuda-bindings<14,>=13.0.3->torch>=2.1.0->-r requirements.txt (line 1)) (1.6.0)
-Requirement already satisfied: huggingface-hub<2.0,>=1.5.0 in ./.venv/lib/python3.13/site-packages (from transformers>=4.35.0->-r requirements.txt (line 2)) (1.27.0)
-Requirement already satisfied: packaging>=20.0 in ./.venv/lib/python3.13/site-packages (from transformers>=4.35.0->-r requirements.txt (line 2)) (26.3)
-Requirement already satisfied: pyyaml>=5.1 in ./.venv/lib/python3.13/site-packages (from transformers>=4.35.0->-r requirements.txt (line 2)) (6.0.3)
-Requirement already satisfied: regex>=2025.10.22 in ./.venv/lib/python3.13/site-packages (from transformers>=4.35.0->-r requirements.txt (line 2)) (2026.7.19)
-Requirement already satisfied: tokenizers<=0.23.0,>=0.22.0 in ./.venv/lib/python3.13/site-packages (from transformers>=4.35.0->-r requirements.txt (line 2)) (0.22.2)
-Requirement already satisfied: typer in ./.venv/lib/python3.13/site-packages (from transformers>=4.35.0->-r requirements.txt (line 2)) (0.27.1)
-Requirement already satisfied: safetensors>=0.8.0 in ./.venv/lib/python3.13/site-packages (from transformers>=4.35.0->-r requirements.txt (line 2)) (0.8.0)
-Requirement already satisfied: tqdm>=4.60 in ./.venv/lib/python3.13/site-packages (from transformers>=4.35.0->-r requirements.txt (line 2)) (4.70.0)
-Requirement already satisfied: click<9.0.0,>=8.4.2 in ./.venv/lib/python3.13/site-packages (from huggingface-hub<2.0,>=1.5.0->transformers>=4.35.0->-r requirements.txt (line 2)) (8.4.2)
-Requirement already satisfied: hf-xet<2.0.0,>=1.5.2 in ./.venv/lib/python3.13/site-packages (from huggingface-hub<2.0,>=1.5.0->transformers>=4.35.0->-r requirements.txt (line 2)) (1.6.0)
-Requirement already satisfied: httpx<1,>=0.23.0 in ./.venv/lib/python3.13/site-packages (from huggingface-hub<2.0,>=1.5.0->transformers>=4.35.0->-r requirements.txt (line 2)) (0.28.1)
-Requirement already satisfied: anyio in ./.venv/lib/python3.13/site-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers>=4.35.0->-r requirements.txt (line 2)) (4.14.2)
-Requirement already satisfied: certifi in ./.venv/lib/python3.13/site-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers>=4.35.0->-r requirements.txt (line 2)) (2026.7.22)
-Requirement already satisfied: httpcore==1.* in ./.venv/lib/python3.13/site-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers>=4.35.0->-r requirements.txt (line 2)) (1.0.9)
-Requirement already satisfied: idna in ./.venv/lib/python3.13/site-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers>=4.35.0->-r requirements.txt (line 2)) (3.18)
-Requirement already satisfied: h11>=0.16 in ./.venv/lib/python3.13/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers>=4.35.0->-r requirements.txt (line 2)) (0.16.0)
-Requirement already satisfied: requests>=2.31 in ./.venv/lib/python3.13/site-packages (from yfinance>=0.2.31->-r requirements.txt (line 3)) (2.34.2)
-Requirement already satisfied: multitasking>=0.0.7 in ./.venv/lib/python3.13/site-packages (from yfinance>=0.2.31->-r requirements.txt (line 3)) (0.0.13)
-Requirement already satisfied: platformdirs>=2.0.0 in ./.venv/lib/python3.13/site-packages (from yfinance>=0.2.31->-r requirements.txt (line 3)) (4.11.0)
-Requirement already satisfied: pytz>=2022.5 in ./.venv/lib/python3.13/site-packages (from yfinance>=0.2.31->-r requirements.txt (line 3)) (2026.3.post1)
-Requirement already satisfied: peewee>=3.16.2 in ./.venv/lib/python3.13/site-packages (from yfinance>=0.2.31->-r requirements.txt (line 3)) (4.3.0)
-Requirement already satisfied: beautifulsoup4>=4.11.1 in ./.venv/lib/python3.13/site-packages (from yfinance>=0.2.31->-r requirements.txt (line 3)) (4.15.0)
-Requirement already satisfied: curl_cffi>=0.15 in ./.venv/lib/python3.13/site-packages (from yfinance>=0.2.31->-r requirements.txt (line 3)) (0.16.0)
-Requirement already satisfied: protobuf>=3.19.0 in ./.venv/lib/python3.13/site-packages (from yfinance>=0.2.31->-r requirements.txt (line 3)) (7.35.1)
-Requirement already satisfied: websockets>=13.0 in ./.venv/lib/python3.13/site-packages (from yfinance>=0.2.31->-r requirements.txt (line 3)) (17.0.1)
-Requirement already satisfied: python-dateutil>=2.8.2 in ./.venv/lib/python3.13/site-packages (from pandas>=2.1.0->-r requirements.txt (line 4)) (2.9.0.post0)
-Requirement already satisfied: scipy>=1.10.0 in ./.venv/lib/python3.13/site-packages (from scikit-learn>=1.3.0->-r requirements.txt (line 6)) (1.18.0)
-Requirement already satisfied: joblib>=1.4.0 in ./.venv/lib/python3.13/site-packages (from scikit-learn>=1.3.0->-r requirements.txt (line 6)) (1.5.3)
-Requirement already satisfied: narwhals>=2.0.1 in ./.venv/lib/python3.13/site-packages (from scikit-learn>=1.3.0->-r requirements.txt (line 6)) (2.24.0)
-Requirement already satisfied: threadpoolctl>=3.5.0 in ./.venv/lib/python3.13/site-packages (from scikit-learn>=1.3.0->-r requirements.txt (line 6)) (3.6.0)
-Requirement already satisfied: contourpy>=1.0.1 in ./.venv/lib/python3.13/site-packages (from matplotlib>=3.8.0->-r requirements.txt (line 7)) (1.3.3)
-Requirement already satisfied: cycler>=0.10 in ./.venv/lib/python3.13/site-packages (from matplotlib>=3.8.0->-r requirements.txt (line 7)) (0.12.1)
-Requirement already satisfied: fonttools>=4.28.2 in ./.venv/lib/python3.13/site-packages (from matplotlib>=3.8.0->-r requirements.txt (line 7)) (4.63.0)
-Requirement already satisfied: kiwisolver>=1.3.1 in ./.venv/lib/python3.13/site-packages (from matplotlib>=3.8.0->-r requirements.txt (line 7)) (1.5.0)
-Requirement already satisfied: pillow>=9 in ./.venv/lib/python3.13/site-packages (from matplotlib>=3.8.0->-r requirements.txt (line 7)) (12.3.0)
-Requirement already satisfied: pyparsing>=3 in ./.venv/lib/python3.13/site-packages (from matplotlib>=3.8.0->-r requirements.txt (line 7)) (3.3.2)
-Requirement already satisfied: pyarrow>=21.0.0 in ./.venv/lib/python3.13/site-packages (from datasets>=2.14.0->-r requirements.txt (line 8)) (25.0.0)
-Requirement already satisfied: dill<0.4.2,>=0.3.0 in ./.venv/lib/python3.13/site-packages (from datasets>=2.14.0->-r requirements.txt (line 8)) (0.4.1)
-Requirement already satisfied: xxhash in ./.venv/lib/python3.13/site-packages (from datasets>=2.14.0->-r requirements.txt (line 8)) (3.8.1)
-Requirement already satisfied: multiprocess<0.70.20 in ./.venv/lib/python3.13/site-packages (from datasets>=2.14.0->-r requirements.txt (line 8)) (0.70.19)
-Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in ./.venv/lib/python3.13/site-packages (from fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.14.0->-r requirements.txt (line 8)) (3.14.3)
-Requirement already satisfied: aiohappyeyeballs>=2.5.0 in ./.venv/lib/python3.13/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.14.0->-r requirements.txt (line 8)) (2.7.1)
-Requirement already satisfied: aiosignal>=1.4.0 in ./.venv/lib/python3.13/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.14.0->-r requirements.txt (line 8)) (1.4.0)
-Requirement already satisfied: attrs>=17.3.0 in ./.venv/lib/python3.13/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.14.0->-r requirements.txt (line 8)) (26.1.0)
-Requirement already satisfied: frozenlist>=1.1.1 in ./.venv/lib/python3.13/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.14.0->-r requirements.txt (line 8)) (1.8.0)
-Requirement already satisfied: multidict<7.0,>=4.5 in ./.venv/lib/python3.13/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.14.0->-r requirements.txt (line 8)) (6.7.1)
-Requirement already satisfied: propcache>=0.2.0 in ./.venv/lib/python3.13/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.14.0->-r requirements.txt (line 8)) (0.5.2)
-Requirement already satisfied: yarl<2.0,>=1.17.0 in ./.venv/lib/python3.13/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.6.0,>=2023.1.0->datasets>=2.14.0->-r requirements.txt (line 8)) (1.24.5)
-Requirement already satisfied: soupsieve>=1.6.1 in ./.venv/lib/python3.13/site-packages (from beautifulsoup4>=4.11.1->yfinance>=0.2.31->-r requirements.txt (line 3)) (2.9.2)
-Requirement already satisfied: cffi>=2.0.0 in ./.venv/lib/python3.13/site-packages (from curl_cffi>=0.15->yfinance>=0.2.31->-r requirements.txt (line 3)) (2.1.1)
-Requirement already satisfied: pycparser in ./.venv/lib/python3.13/site-packages (from cffi>=2.0.0->curl_cffi>=0.15->yfinance>=0.2.31->-r requirements.txt (line 3)) (3.0)
-Requirement already satisfied: six>=1.5 in ./.venv/lib/python3.13/site-packages (from python-dateutil>=2.8.2->pandas>=2.1.0->-r requirements.txt (line 4)) (1.17.0)
-Requirement already satisfied: charset_normalizer<4,>=2 in ./.venv/lib/python3.13/site-packages (from requests>=2.31->yfinance>=0.2.31->-r requirements.txt (line 3)) (3.4.9)
-Requirement already satisfied: urllib3<3,>=1.26 in ./.venv/lib/python3.13/site-packages (from requests>=2.31->yfinance>=0.2.31->-r requirements.txt (line 3)) (2.7.0)
-Requirement already satisfied: mpmath<1.4,>=1.1.0 in ./.venv/lib/python3.13/site-packages (from sympy>=1.13.3->torch>=2.1.0->-r requirements.txt (line 1)) (1.3.0)
-Requirement already satisfied: MarkupSafe>=2.0 in ./.venv/lib/python3.13/site-packages (from jinja2->torch>=2.1.0->-r requirements.txt (line 1)) (3.0.3)
-Requirement already satisfied: shellingham>=1.3.0 in ./.venv/lib/python3.13/site-packages (from typer->transformers>=4.35.0->-r requirements.txt (line 2)) (1.5.4)
-Requirement already satisfied: rich>=13.8.0 in ./.venv/lib/python3.13/site-packages (from typer->transformers>=4.35.0->-r requirements.txt (line 2)) (15.0.0)
-Requirement already satisfied: annotated-doc>=0.0.2 in ./.venv/lib/python3.13/site-packages (from typer->transformers>=4.35.0->-r requirements.txt (line 2)) (0.0.5)
-Requirement already satisfied: markdown-it-py>=2.2.0 in ./.venv/lib/python3.13/site-packages (from rich>=13.8.0->typer->transformers>=4.35.0->-r requirements.txt (line 2)) (4.2.0)
-Requirement already satisfied: pygments<3.0.0,>=2.13.0 in ./.venv/lib/python3.13/site-packages (from rich>=13.8.0->typer->transformers>=4.35.0->-r requirements.txt (line 2)) (2.20.0)
-Requirement already satisfied: mdurl~=0.1 in ./.venv/lib/python3.13/site-packages (from markdown-it-py>=2.2.0->rich>=13.8.0->typer->transformers>=4.35.0->-r requirements.txt (line 2)) (0.1.2)
-
-[notice] A new release of pip is available: 25.3 -> 26.2.1
-[notice] To update, run: pip install --upgrade pip
-3. Collecting Stock & News Data...
-[*********************100%***********************]  1 of 1 completed
-Downloading historical stock data for AAPL...
-Downloaded 501 days of stock data.
-Generating simulated financial news headlines...
-Loaded 12 simulated financial news headlines.
-Generated a simulated daily news feed with 1014 total headlines.
-
-Data collection complete! Saved to data/raw
-4. Running FinBERT Sentiment Analysis...
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-Loading raw financial news...
-Loading FinBERT Model (This will download ~400MB if not cached)...
-Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 55054.86it/s]
-/home/nafees/DL-Project/.venv/lib/python3.13/site-packages/torch/cuda/__init__.py:188: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 12020). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at /__w/pytorch/pytorch/c10/cuda/CUDAFunctions.cpp:119.)
-  return torch._C._cuda_getDeviceCount() > 0
-Using device: cpu
-Analyzing sentiment for 1014 headlines...
-FinBERT:   0%|          | 0/32 [00:00<?, ?it/s]FinBERT:   6%|▋         | 2/32 [00:00<00:01, 15.52it/s]FinBERT:  12%|█▎        | 4/32 [00:00<00:01, 15.91it/s]FinBERT:  19%|█▉        | 6/32 [00:00<00:01, 16.23it/s]FinBERT:  25%|██▌       | 8/32 [00:00<00:01, 16.26it/s]FinBERT:  31%|███▏      | 10/32 [00:00<00:01, 16.45it/s]FinBERT:  38%|███▊      | 12/32 [00:00<00:01, 16.58it/s]FinBERT:  44%|████▍     | 14/32 [00:00<00:01, 17.00it/s]FinBERT:  50%|█████     | 16/32 [00:00<00:00, 17.59it/s]FinBERT:  56%|█████▋    | 18/32 [00:01<00:00, 17.38it/s]FinBERT:  62%|██████▎   | 20/32 [00:01<00:00, 17.15it/s]FinBERT:  69%|██████▉   | 22/32 [00:01<00:00, 17.54it/s]FinBERT:  75%|███████▌  | 24/32 [00:01<00:00, 17.04it/s]FinBERT:  81%|████████▏ | 26/32 [00:01<00:00, 17.30it/s]FinBERT:  88%|████████▊ | 28/32 [00:01<00:00, 16.82it/s]FinBERT:  94%|█████████▍| 30/32 [00:01<00:00, 17.55it/s]FinBERT: 100%|██████████| 32/32 [00:01<00:00, 17.27it/s]
-Aggregating sentiment by day...
-
-Sentiment Analysis complete! Saved daily scores to data/processed/daily_sentiment.csv
-5. Preparing Time-Series Windows...
-Loading datasets...
-Scaling data to range [0, 1] for neural network stability...
-Creating time-series sequences (window size = 10 days)...
-Prepared 392 training sequences and 99 test sequences.
-Data saved to data/processed
-6. Training the LSTM Model...
-/home/nafees/DL-Project/.venv/lib/python3.13/site-packages/torch/cuda/__init__.py:188: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 12020). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at /__w/pytorch/pytorch/c10/cuda/CUDAFunctions.cpp:119.)
-  return torch._C._cuda_getDeviceCount() > 0
-Training on device: cpu
-Loading prepared sequences...
-Initializing LSTM Model...
-Starting training for 50 epochs...
-Epoch [1/50], Loss: 0.175796
-Epoch [10/50], Loss: 0.006379
-Epoch [20/50], Loss: 0.005853
-Epoch [30/50], Loss: 0.004845
-Epoch [40/50], Loss: 0.004064
-Epoch [50/50], Loss: 0.003753
-Training complete!
-Model saved to models/lstm_model.pth
-7. Evaluating and Plotting...
-/home/nafees/DL-Project/.venv/lib/python3.13/site-packages/torch/cuda/__init__.py:188: UserWarning: CUDA initialization: The NVIDIA driver on your system is too old (found version 12020). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver. (Triggered internally at /__w/pytorch/pytorch/c10/cuda/CUDAFunctions.cpp:119.)
-  return torch._C._cuda_getDeviceCount() > 0
-Loading test data...
-Loading trained LSTM model...
-Generating predictions on the test set...
-Inverting MinMaxScaler to calculate real dollar amounts...
-
-Final Test RMSE (Root Mean Squared Error): $3.29
-Generating prediction visualization...
-Visualization saved successfully to reports/figures/stock_prediction.png
-=== Pipeline Completed Successfully! ===
