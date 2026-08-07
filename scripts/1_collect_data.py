@@ -1,13 +1,13 @@
 """
 Script 1: Data Collection (Stock Prices & Financial News)
 
-In this script, we collect the two datasets we need for our Multimodal Deep Learning pipeline:
+In this script, I collect the two datasets I need for my Multimodal Deep Learning pipeline:
 1. Historical Stock Prices (using yfinance)
-2. Financial News Headlines (using HuggingFace datasets)
+2. Financial News Headlines
 
-Since paid financial news APIs are expensive, we simulate a daily news feed by pulling 
-real financial headlines from the famous 'financial_phrasebank' dataset and mapping them 
-to our trading days. This ensures our project is 100% reproducible and free.
+Since paid financial news APIs are expensive, I simulate a daily news feed by pulling 
+realistic financial headlines and mapping them to trading days. This ensures my 
+project is fully reproducible.
 """
 import os
 import yfinance as yf

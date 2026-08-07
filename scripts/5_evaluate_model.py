@@ -1,9 +1,8 @@
 """
 Script 5: Evaluating the Model and Visualizing Predictions
 
-We run our trained LSTM on the unseen Test data to see how well it learned the patterns.
-We then use matplotlib to generate a beautiful line chart comparing the AI's 
-predicted stock price against the actual stock price.
+I run my trained LSTM on the unseen Test data to evaluate its performance.
+I generate a line chart comparing my AI's predicted stock price against the actual price.
 """
 import os
 import numpy as np
@@ -61,8 +60,8 @@ def main():
     with open(os.path.join(MODELS_DIR, "scaler.pkl"), "rb") as f:
         scaler = pickle.load(f)
         
-    # We need to recreate a dummy array of shape (N, features) to unscale the predictions
-    # since our scaler was fit on [Close, Volume, Sentiment]
+    # I need to recreate a dummy array of shape (N, features) to unscale the predictions
+    # since my scaler was fit on [Close, Volume, Sentiment]
     num_features = scaler.scale_.shape[0]
     
     dummy_pred = np.zeros((len(predictions), num_features))

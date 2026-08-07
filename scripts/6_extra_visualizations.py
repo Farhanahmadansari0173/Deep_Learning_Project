@@ -1,7 +1,7 @@
 """
 Script 6: Extra Academic Visualizations
 
-To make the thesis outstanding, we generate extra figures that prove our methodology:
+To further support my methodology, I generate extra figures:
 1. Sentiment Distribution Plot (Pie Chart)
 2. Correlation Heatmap (Close Price vs Volume vs Sentiment)
 """

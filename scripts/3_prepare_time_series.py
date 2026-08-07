@@ -1,9 +1,9 @@
 """
 Script 3: Time-Series Data Preparation
 
-Neural Networks like LSTMs don't just take single rows of data. They take "sequences" or "windows".
-For example, to predict Day 10's stock price, the LSTM needs to look at the sequence of Days 1 to 9.
-This script merges our Financial NLP Sentiment with the numerical stock data, scales the values, 
+Neural Networks like LSTMs take sequences or "windows" of data.
+For example, to predict Day 10's stock price, the LSTM looks at Days 1 to 9.
+This script merges my Financial NLP Sentiment with the numerical stock data, scales the values, 
 and generates these sliding windows for PyTorch.
 """
 import os
@@ -45,8 +45,8 @@ def main():
     # Sort by date chronologically
     df = df.sort_values('Date')
     
-    # We will use Close, Volume, and our new NLP Sentiment feature
-    # The target variable we want to predict MUST be the first column for our indexing to work
+    # I will use Close, Volume, and my new NLP Sentiment feature
+    # The target variable I want to predict MUST be the first column
     features = ['Close', 'Volume', 'Sentiment']
     data_to_scale = df[features].values
     

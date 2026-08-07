@@ -1,10 +1,9 @@
 """
 Script 2: Sentiment Analysis using FinBERT
 
-Traditional NLP models don't understand finance (e.g., "short" is just an adjective to BERT, 
-but to a trader, it means betting against a stock).
-Here, we use FinBERT, a transformer model pre-trained specifically on financial text.
-We pass all of our daily headlines through this Neural Network to extract a "Sentiment Score".
+Traditional NLP models don't understand finance.
+I use FinBERT, a transformer model pre-trained specifically on financial text.
+I pass all of my daily headlines through this Neural Network to extract a "Sentiment Score".
 """
 import os
 import pandas as pd

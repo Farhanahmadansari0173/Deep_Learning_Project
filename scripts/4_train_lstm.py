@@ -1,10 +1,7 @@
 """
-Script 4: Training the Long Short-Term Memory (LSTM) Model
+Script 4: Training the LSTM Model
 
-Now for the Deep Learning! We define a PyTorch LSTM network. 
-Unlike standard neural networks that treat every input independently, 
-LSTMs possess an internal "memory" state, allowing them to understand trends 
-over time (e.g., if a stock goes up for 3 days alongside positive news, it learns that pattern).
+I define a PyTorch LSTM network and train it on my processed time-series data.
 """
 import os
 import numpy as np
@@ -25,7 +22,7 @@ LEARNING_RATE = 0.001
 
 class StockLSTM(nn.Module):
     """
-    A standard PyTorch LSTM architecture.
+    # Define my LSTM Architecture.
     """
     def __init__(self, input_size, hidden_size, num_layers, output_size=1):
         super(StockLSTM, self).__init__()
