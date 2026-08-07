@@ -11,7 +11,7 @@ import torch
 import torch.nn as nn
 import matplotlib.pyplot as plt
 import pickle
-from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 
 PROCESSED_DIR = "data/processed"
 MODELS_DIR = "models"
@@ -74,7 +74,12 @@ def main():
     real_y_test = scaler.inverse_transform(dummy_y)[:, 0]
     
     rmse = np.sqrt(mean_squared_error(real_y_test, real_predictions))
+    mae = mean_absolute_error(real_y_test, real_predictions)
+    mape = np.mean(np.abs((real_y_test - real_predictions) / real_y_test)) * 100
+    
     print(f"\nFinal Test RMSE (Root Mean Squared Error): ${rmse:.2f}")
+    print(f"Final Test MAE (Mean Absolute Error): ${mae:.2f}")
+    print(f"Final Test MAPE (Mean Absolute Percentage Error): {mape:.2f}%")
     
     # Plotting
     print("Generating prediction visualization...")
